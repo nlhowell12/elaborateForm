@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Elaborate Form</title>
+</head>
+<style>
+  form {
+    /* Just to center the form on the page */
+    margin: 0 auto;
+    width: 400px;
+    /* To see the outline of the form */
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+  }
+  
+  form div + div {
+    margin-top: 1em;
+  }
+  
+  label {
+    /* To make sure that all labels have the same size and are properly aligned */
+    display: inline-block;
+    width: 300px;
+    text-align: left;
+  }
+  
+  input, textarea {
+    /* To make sure that all text fields have the same font settings
+    By default, textareas have a monospace font */
+    font: 1em sans-serif;
+    
+    /* To give the same size to all text fields */
+    width: 300px;
+    box-sizing: border-box;
+    
+    /* To harmonize the look & feel of text field border */
+    border: 1px solid #999;
+  }
+  
+  input:focus, textarea:focus {
+    /* To give a little highlight on active elements */
+    border-color: #000;
+  }
+  
+  textarea {
+    /* To properly align multiline text fields with their labels */
+    vertical-align: top;
+    
+    /* To give enough room to type some text */
+    height: 5em;
+  }
+  
+  .button {
+    /* To position the buttons to the same position of the text fields */
+    padding-left: 90px; /* same size as the label elements */
+  }
+  
+  button {
+    /* This extra margin represent roughly the same space as the space
+    between the labels and their text fields */
+    margin-left: .5em;
+  }
+  #prefComm {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    align-content: flex-start;
+  }
+  #prefComm label {
+    width: 100%;
+    text-align: left;
+  }
+  #devices {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+  }
+  li {
+    display: flex;
+  }
+  #inquiry {
+    display: flex;
+    width: 100%
+  }
+</style>
+<body>
+  <form action="http://localhost:3000" method="post">
+    <fieldset>
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="user_name" autofocus>
+    </div>
+    <div>
+      <label for="mail">E-mail:</label>
+      <input type="email" id="mail" name="user_mail">
+    </div>
+    <div>
+      <label for="msg">Message:</label>
+      <textarea id="msg" name="user_message"></textarea>
+    </div>
+    <div>
+      <label for="cellPhone">CellPhone:</label>
+      <input type="tel" id="cellPhone" name="user_cell"></input>
+    </div>
+    <div>
+      <label for="Homepage">Homepage:</label>
+      <input type="url" id="homePage" name="user_homepage"></input>
+    </div>
+  </fieldset>
+  <br>
+  <fieldset>
+    <div id="prefComm">
+      <label for="prefComm">Preferred Communication Method:</label>
+      <ul>
+        <li>
+      <label for="phone">Phone:</label>
+      <input type="radio" id="phone" name="prefMeth" value="phone"></input>
+    </li>
+      <li>
+      <label for="e-mail">Email:</label>
+      <input type="radio" id="e-mail" name="prefMeth" value="email"></input>
+    </li>
+    </ul>
+    </div>
+  </fieldset>
+  <br>
+  <fieldset disabled="disabled">
+    <div id="devices">
+      <label for="devices">Devices:</label>
+      <ul>
+        <li>
+          <label for="android">Android:</label>
+          <input type="checkbox" id="android" name="android" value="android"></input>
+        </li>
+        <li>
+          <label for="iOS">iOS:</label>
+          <input type="checkbox" id="iOS" name="iOS" value="iOS"></input>
+        </li>
+        <li>
+            <label for="mac">Mac:</label>
+            <input type="checkbox" id="mac" name="mac" value="mac"></input>
+        </li>
+        <li>
+            <label for="windows">Windows:</label>
+            <input type="checkbox" id="windows" name="windows" value="windows"></input>
+        </li>
+        <li>
+            <label for="chrome">Chrome:</label>
+            <input type="checkbox" id="chrome" name="chrome" value="chrome"></input>
+        </li>
+        <li>
+            <label for="linux">Linux:</label>
+            <input type="checkbox" id="linux" name="linux" value="linux"></input>
+        </li>
+      </ul>
+    </div>
+  </fieldset>
+  <br>
+  <fieldset>
+    <div id="inquiry">
+        <label for="inquiry">What is your inquiry concerning?:</label>
+        <br>
+        <select name="inquiry" multiple id="inquiry">
+          <option>I want to punch your face.</option>
+          <option>Just....there's something about your face that makes me want to punch it</option>
+          <option>I can't hear anything you're saying....because of your face</option>
+        </select>
+      </div>
+      <div id="colorPicker">
+        <label for="colorPicker">Pick your favorite color! (Just for shiggles)</label>
+        <input type="color" name="color" id="color">
+      </div>
+    <div class="button">
+      <button type="submit">Send your message</button>
+    </div>  
+    <div class="button">
+        <button type="reset">Reset!</button>
+      </div>  
+  </fieldset>  
+  </form>
+</body>
+</html>
